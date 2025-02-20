@@ -1,0 +1,212 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1c20 0%, #2c3e50 100%);
+    color: #ffffff;
+    padding: 2rem;
+    font-family: "Arial", sans-serif;
+    
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .genreSelect {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .genreSelect select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .genreSelect select:hover,
+  .genreSelect select:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+  
+  .movieGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .movieCard {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit; /* Optional: Keep the default text color */
+  }
+  
+  .movieCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .posterContainer {
+    /* position: relative; */
+    height: 200px;
+  }
+  
+  .movieInfo {
+    padding: 1rem;
+  }
+  
+  .movieInfo h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .movieMeta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+  }
+  
+  .rating {
+    background-color: #3498db;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .pageButton {
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pageButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .activePage {
+    background-color: #3498db;
+  }
+  
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  .searchContainer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .searchInput {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    margin-left: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .searchInput:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+  }
+  
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+  
+    .movieGrid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+  
+    .posterContainer {
+      height: 225px;
+    }
+  
+    .movieInfo h2 {
+      font-size: 1rem;
+    }
+  
+    .movieMeta {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    .movieGrid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  
+    .posterContainer {
+      height: 180px;
+    }
+  }
+  
+  

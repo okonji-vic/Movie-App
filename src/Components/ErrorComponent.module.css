@@ -1,0 +1,81 @@
+/* ErrorComponent.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background: #ffcc00;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button:hover {
+    background: #ffd633;
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .title {
+      font-size: 2rem;
+    }
+    .message {
+      font-size: 1rem;
+    }
+    .button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+  
