@@ -10,6 +10,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [rating, setRating] = useState("⭐️️");
     const [selectedGenre, setSelectedGenre] = useState("all");
     const [search , setSearch] = useState("");
   const [loading, setLoading] = useState(true);
@@ -48,7 +49,33 @@ const Home = () => {
       
         fetchGenresAndMovies();
     }, []);
-    
+  
+    useEffect(() => {
+      if (movies) {
+        setRating(ratingChange(movies.vote_average));
+      }
+    }, [movies]);
+  
+  
+    const ratingChange = (voteAverage) => {
+      if (voteAverage >= 8) {
+        return "⭐️⭐️⭐️⭐️⭐️";
+      } else if (voteAverage >= 7) {
+        return "⭐️⭐️⭐️⭐️";
+      } else if (voteAverage >= 6) {
+        return "⭐️⭐️⭐️";
+      } else if (voteAverage >= 5) {
+        return "⭐️⭐️";
+      } else if (voteAverage >= 4) {
+        return "⭐️";
+      } else {
+        return "No Rating";
+      }
+    };
+
+
+
+      
 
     const handleSearch = async (input) => {
         if (!input) {
@@ -61,7 +88,7 @@ const Home = () => {
             const response = await axios.get(
                 `https://api.themoviedb.org/3/search/movie?api_key=a704d2932b02b0671456d391d93071fa&query=${input}`
             );
-            setFilteredMovies(response.data.results);
+          setFilteredMovies(response.data.results);
             console.log("Search:", response.data.results);
         } catch (err) {
             console.error("Error searching movies:", err);
@@ -145,9 +172,12 @@ const Home = () => {
   }).join(", ")}
 </span>
 
-                    <span className={styles.rating}>Rating: 8.5</span>
-                    {/* <span>Release Date: {movie.release_date}</span>
-                    <p>{movie.overview}</p> */}
+                    {/* <span className={styles.rating}>Rating: {movie.vote_average.toFixed(1)}</span> */}
+                    <span className={styles.rating}>
+  Rating:{ratingChange(movie.vote_average)}
+</span>
+
+                    
                   </div>
                 </div>
               </Link>

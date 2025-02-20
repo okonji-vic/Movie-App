@@ -48,9 +48,11 @@
   
   .movieGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+    min-width: 250px;
+
   }
   
   .movieCard {
@@ -91,15 +93,21 @@
   .movieMeta {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 0.9rem;
     color: #bdc3c7;
+    
   }
   
   .rating {
-    background-color: #3498db;
-    padding: 0.2rem 0.5rem;
-    border-radius: 20px;
+    /* background-color: #3498db; */
+    padding: 0.3rem 0.2rem;
+    border-radius: 15px;
     font-weight: bold;
+    font-size: 0.8rem;
+    color: aqua;
+    
+    
   }
   
   .pagination {
@@ -178,7 +186,7 @@
     }
   
     .movieGrid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 1rem;
     }
   
