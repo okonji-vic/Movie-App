@@ -201,7 +201,15 @@ const Home = () => {
         </>
       ) : (
       <div className={styles.noMovies}>
-        <p>No movies found for {search ? `search term "${search}"` : `genre "${selectedGenre === "all" ? "All Genres" : genres.find(g => g.id === Number(selectedGenre)).name}"`}</p>
+              {/* <p>No movies found for {search ? `search term "${search}"` : `genre "${selectedGenre === "all" ? "All Genres" : genres.find(g => g.id === Number(selectedGenre)).name}"`}</p> */}
+              <p>
+  No movies found for{" "}
+  {typeof search === "string" && search.trim() !== ""
+    ? `search term "${search}"`
+    : `genre "${selectedGenre === "all" ? "All Genres" : (genres.find(g => g.id === Number(selectedGenre))?.name || "Unknown Genre")}"`}
+</p>
+
+
       </div>
       )}
     </div>
