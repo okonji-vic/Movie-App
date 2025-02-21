@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
+import SkeletonLoader from "../Components/SkeletonLoader";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./MovieDetails.css";
@@ -46,18 +47,24 @@ const MovieDetails = () => {
 
   if (!movie) {
     return (
-      <div className="movie-details">
-        <Skeleton height={300} width="100%" />
-        <div className="movie-content">
-          <Skeleton height={300} width={200} />
-          <div className="movie-info">
-            <Skeleton height={30} width="80%" />
-            <Skeleton count={3} />
-            <Skeleton height={20} width="50%" />
-          </div>
-        </div>
+      <div className="loader">
+          <div className="spinner"></div>
       </div>
     );
+    // <SkeletonLoader />
+      // <div className="movie-details">
+      //    <Skeleton height={300} width="100%" />
+      //   <div className="movie-content">
+      //     <Skeleton height={300} width={200} />
+      //     <div className="movie-info">
+      //       <Skeleton height={30} width="80%" />
+      //       <Skeleton count={3} />
+      //       <Skeleton height={20} width="50%" />
+      //     </div>
+      //   </div> 
+        
+      // </div>
+    
   }
   
 

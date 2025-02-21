@@ -172,6 +172,13 @@
     border-color: #ff6b6b;
     box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
   }
+
+  .noMovies {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    margin-top: 2rem;
+  } 
   
   
   @keyframes spin {

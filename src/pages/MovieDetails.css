@@ -63,11 +63,20 @@ iframe {
   font-weight: bold;
 }
 
-.loading {
-  font-size: 1.5rem;
-  text-align: center;
-  color: #666;
-  margin-top: 2rem;
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 1s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
