@@ -77,7 +77,7 @@ const MovieDetails = () => {
     <p className="movie-tagline">{movie.tagline}</p>
     <p className="movie-overview">{movie.overview}</p>
     <p className="movie-release-date">Release Date: {movie.release_date}</p>
-          <p className="movie-rating">Rating: {movie.vote_average}</p>
+          <p className="movie-rating">Rating: {movie.vote_average.toFixed(1)}</p>
           <a
             href={`https://www.themoviedb.org/movie/${movie.id}`}
             target="_blank"
