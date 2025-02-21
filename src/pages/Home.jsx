@@ -15,7 +15,7 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const moviesPerPage = 10;
+  const moviesPerPage = 9;
 
     
   useEffect(() => {
@@ -24,8 +24,9 @@ const Home = () => {
         const genreResponse = await axios.get(
           "https://api.themoviedb.org/3/genre/movie/list?api_key=a704d2932b02b0671456d391d93071fa&language=en-US"
         );
-        setGenres([{ id: "all", name: "All Genres" }, ...genreResponse.data.genres]);
-              
+        setGenres([...genreResponse.data.genres]);
+        // setGenres([{ id: "all", name: "All Genres" }, ...genreResponse.data.genres]);
+    
         const searchResponse = await axios.get(
           "https://api.themoviedb.org/3/search/movie?api_key=a704d2932b02b0671456d391d93071fa&query=avengers"
         );
@@ -57,16 +58,16 @@ const Home = () => {
   }, [movies]);
   
   
-  const ratingChange = (voteAverage) => {
-    if (voteAverage >= 8) {
+  const ratingChange = (ratingNumber) => {
+    if (ratingNumber >= 8) {
       return "⭐️⭐️⭐️⭐️⭐️";
-    } else if (voteAverage >= 7) {
+    } else if (ratingNumber >= 7) {
       return "⭐️⭐️⭐️⭐️";
-    } else if (voteAverage >= 6) {
+    } else if (ratingNumber >= 6) {
       return "⭐️⭐️⭐️";
-    } else if (voteAverage >= 5) {
+    } else if (ratingNumber >= 5) {
       return "⭐️⭐️";
-    } else if (voteAverage >= 4) {
+    } else if (ratingNumber >= 4) {
       return "⭐️";
     } else {
       return "No Rating";
@@ -200,7 +201,7 @@ const Home = () => {
         </>
       ) : (
       <div className={styles.noMovies}>
-              <p>No movies found for {search}</p>
+        <p>No movies found for {search ? `search term "${search}"` : `genre "${selectedGenre === "all" ? "All Genres" : genres.find(g => g.id === Number(selectedGenre)).name}"`}</p>
       </div>
       )}
     </div>
